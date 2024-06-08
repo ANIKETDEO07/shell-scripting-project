@@ -62,7 +62,7 @@ aws lambda create-function \
   --handler "s3-lambda-function/s3-lambda-function.lambda_handler" \
   --memory-size 128 \
   --timeout 30 \
-  --role "arn:aws:iam::$aws_account_id:role/$role_name" \
+  --role "arn:aws:iam::114923371:role/$role_name" \
   --zip-file "fileb://./s3-lambda-function.zip"
 
 # Add Permissions to S3 Bucket to invoke Lambda
@@ -74,7 +74,7 @@ aws lambda add-permission \
   --source-arn "arn:aws:s3:::$bucket_name"
 
 # Create an S3 event trigger for the Lambda function
-LambdaFunctionArn="arn:aws:lambda:us-east-1:$aws_account_id:function:s3-lambda-function"
+LambdaFunctionArn="arn:aws:lambda:us-east-1:114923371:function:s3-lambda-function"
 aws s3api put-bucket-notification-configuration \
   --region "$aws_region" \
   --bucket "$bucket_name" \
